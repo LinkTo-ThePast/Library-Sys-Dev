@@ -20,16 +20,18 @@ public class LoginView extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
-    jPanel1 = new javax.swing.JPanel();
+    loginView = new javax.swing.JPanel();
     userLabel = new javax.swing.JLabel();
     txtUser = new javax.swing.JTextField();
     passwordLabel = new javax.swing.JLabel();
     txtPassword = new javax.swing.JPasswordField();
     loginBtn = new javax.swing.JButton();
+    iconLoginView = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setTitle("Login");
 
-    jPanel1.setBackground(new java.awt.Color(238, 229, 233));
+    loginView.setBackground(new java.awt.Color(238, 229, 233));
 
     userLabel.setBackground(new java.awt.Color(241, 191, 152));
     userLabel.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
@@ -38,6 +40,11 @@ public class LoginView extends javax.swing.JFrame {
 
     txtUser.setBackground(new java.awt.Color(241, 191, 152));
     txtUser.setForeground(new java.awt.Color(0, 0, 0));
+    txtUser.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtUserActionPerformed(evt);
+      }
+    });
 
     passwordLabel.setBackground(new java.awt.Color(241, 191, 152));
     passwordLabel.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
@@ -46,99 +53,101 @@ public class LoginView extends javax.swing.JFrame {
 
     txtPassword.setBackground(new java.awt.Color(241, 191, 152));
     txtPassword.setForeground(new java.awt.Color(0, 0, 0));
-    txtPassword.setText("jPasswordField1");
+    txtPassword.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        txtPasswordActionPerformed(evt);
+      }
+    });
 
-    loginBtn.setText("jButton1");
+    loginBtn.setBackground(new java.awt.Color(255, 255, 102));
+    loginBtn.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+    loginBtn.setForeground(new java.awt.Color(0, 0, 0));
+    loginBtn.setText("Enter");
+    loginBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+    loginBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+    loginBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        loginBtnActionPerformed(evt);
+      }
+    });
 
-    javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-    jPanel1.setLayout(jPanel1Layout);
-    jPanel1Layout.setHorizontalGroup(
-      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPanel1Layout.createSequentialGroup()
-        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(279, 279, 279)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+    iconLoginView.setIcon(new javax.swing.ImageIcon(getClass().getResource("/librarysysdev/GUI/icons/iconLoginView.png"))); // NOI18N
+
+    javax.swing.GroupLayout loginViewLayout = new javax.swing.GroupLayout(loginView);
+    loginView.setLayout(loginViewLayout);
+    loginViewLayout.setHorizontalGroup(
+      loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(loginViewLayout.createSequentialGroup()
+        .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(loginViewLayout.createSequentialGroup()
+            .addGap(172, 172, 172)
+            .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(passwordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(userLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-          .addGroup(jPanel1Layout.createSequentialGroup()
-            .addGap(336, 336, 336)
-            .addComponent(loginBtn)))
-        .addContainerGap(464, Short.MAX_VALUE))
+              .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(61, 61, 61)
+            .addComponent(iconLoginView))
+          .addGroup(loginViewLayout.createSequentialGroup()
+            .addGap(206, 206, 206)
+            .addComponent(loginBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        .addContainerGap(174, Short.MAX_VALUE))
     );
-    jPanel1Layout.setVerticalGroup(
-      jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(jPanel1Layout.createSequentialGroup()
-        .addGap(82, 82, 82)
-        .addComponent(userLabel)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(33, 33, 33)
-        .addComponent(passwordLabel)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(28, 28, 28)
+    loginViewLayout.setVerticalGroup(
+      loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(loginViewLayout.createSequentialGroup()
+        .addGap(153, 153, 153)
+        .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addGroup(loginViewLayout.createSequentialGroup()
+            .addComponent(userLabel)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(28, 28, 28)
+            .addComponent(passwordLabel)
+            .addGap(3, 3, 3)
+            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+          .addComponent(iconLoginView, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addGap(15, 15, 15)
         .addComponent(loginBtn)
-        .addContainerGap(247, Short.MAX_VALUE))
+        .addContainerGap(186, Short.MAX_VALUE))
     );
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addComponent(loginView, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(layout.createSequentialGroup()
-        .addContainerGap()
-        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addGap(28, 28, 28))
+      .addComponent(loginView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void loginBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginBtnActionPerformed
+    // TODO add your handling code here:
+    String userNameCrendentials = txtUser.getText();
+    String passwordCredentials = txtUser.getText();
+  }//GEN-LAST:event_loginBtnActionPerformed
+
+  private void txtUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserActionPerformed
+    
+  }//GEN-LAST:event_txtUserActionPerformed
+
+  private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+  
+  }//GEN-LAST:event_txtPasswordActionPerformed
+
   /**
    * @param args the command line arguments
    */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-    /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
-        }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
-
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new LoginView().setVisible(true);
-      }
-    });
-  }
-
+ 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JPanel jPanel1;
+  private javax.swing.JLabel iconLoginView;
   private javax.swing.JButton loginBtn;
+  private javax.swing.JPanel loginView;
   private javax.swing.JLabel passwordLabel;
   private javax.swing.JPasswordField txtPassword;
   private javax.swing.JTextField txtUser;

@@ -1,16 +1,18 @@
 
-package librarysysdev;
+package librarysysdev.logic;
 
 public class Membership {
   // attributes: ---> basic info for clients/readers
+  private int reader_id;
   private String firstName;
   private String lastName;
   private String email;
-  private int id;
+  private String password;
   private int age;
   private String membershipType;
   private int currentBorrowedBooks;
-
+  
+  private List<Book> bookList;  // one to n relationship;
 
   // methods:
 
@@ -96,6 +98,10 @@ public class Membership {
   public String getMembershipType() {
     return this.membershipType;
   }
+  
+  public String getPassword() {
+    return this.password;
+  }
 
   public void setMembershipType(String membershipType) {
     if(membershipType.equals("standard")) {
@@ -113,10 +119,11 @@ public class Membership {
   }
 
   // constructor
-  public Membership(String firstName, String lastName, String email, int age, String membershipType) {
+  public Membership(String firstName, String lastName, String email, String password, int age, String membershipType) {
     firstName = this.firstName;
     lastName = this.lastName;
     email = this.email;
+    password = this.password;
     age = this.age;
     membershipType = this.membershipType;
   }
