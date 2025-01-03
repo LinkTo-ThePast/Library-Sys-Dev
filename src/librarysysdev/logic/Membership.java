@@ -1,9 +1,13 @@
 
 package librarysysdev.logic;
 
+@Entity
 public class Membership {
   // attributes: ---> basic info for clients/readers
+  @Id
+  @GeneratedValue
   private int reader_id;
+  
   private String firstName;
   private String lastName;
   private String email;
@@ -12,6 +16,7 @@ public class Membership {
   private String membershipType;
   private int currentBorrowedBooks;
   
+  @OneToMany
   private List<Book> bookList;  // one to n relationship;
 
   // methods:
@@ -89,7 +94,7 @@ public class Membership {
   }
 
   public int getId() {
-    return this.id;
+    return this.reader_id;
   }
 
   public void setId() {
