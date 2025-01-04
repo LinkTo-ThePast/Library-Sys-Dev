@@ -22,6 +22,8 @@ bin/
 /nbdist/
 /.nb-gradle/
 
+*/META-INF/*
+
 ### VS Code ###
 .vscode/
 
