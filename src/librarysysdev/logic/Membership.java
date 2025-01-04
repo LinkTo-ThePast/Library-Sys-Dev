@@ -1,11 +1,13 @@
 
 package librarysysdev.logic;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 @Entity
 public class Membership {
   // attributes: ---> basic info for clients/readers
   @Id
-  @GeneratedValue
   private int reader_id;
   
   private String firstName;
@@ -16,8 +18,6 @@ public class Membership {
   private String membershipType;
   private int currentBorrowedBooks;
   
-  @OneToMany
-  private List<Book> bookList;  // one to n relationship;
 
   // methods:
 
