@@ -23,6 +23,10 @@ bin/
 /.nb-gradle/
 
 */META-INF/*
+#Ignore META-INF 
+META-INF
+build/*
+!build/build.xml
 
 ### VS Code ###
 .vscode/
