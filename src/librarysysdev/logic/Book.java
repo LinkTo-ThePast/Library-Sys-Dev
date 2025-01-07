@@ -1,7 +1,13 @@
 package librarysysdev.logic;
 
-public class Book {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Book implements Serializable {
   
+  @Id
   private int unit_id;
   private String title;
   private String author;
@@ -89,5 +95,4 @@ public class Book {
     this.stockInSystem = stockInSystem;
   }
  
-  
 }

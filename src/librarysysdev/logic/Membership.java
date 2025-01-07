@@ -1,24 +1,35 @@
 
 package librarysysdev.logic;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Membership {
   // attributes: ---> basic info for clients/readers
   @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE)
   private int reader_id;
   
+  // initiail / creation
   private String firstName;
   private String lastName;
-  private String email;
-  private String password;
   private int age;
+  private String email;
+  private String phoneNumber;
   private String membershipType;
+  
+  // post creation
   private int currentBorrowedBooks;
   
-
+  @OneToMany(mappedBy = "borrowedBy", cascade = CascadeType.ALL)
+  private List<Book> bookList = new ArrayList<>();
   // methods:
 
   // 1. retrieve/borrow books from the library;
@@ -104,9 +115,11 @@ public class Membership {
     return this.membershipType;
   }
   
-  public String getPassword() {
-    return this.password;
+  public List getBookList() {
+    return this.bookList;
   }
+  
+ 
 
   public void setMembershipType(String membershipType) {
     if(membershipType.equals("standard")) {
@@ -124,12 +137,15 @@ public class Membership {
   }
 
   // constructor
-  public Membership(String firstName, String lastName, String email, String password, int age, String membershipType) {
+  public Membership() {
+  }
+  
+  public Membership(String firstName, String lastName, int age,  String email, String phoneNumber, String membershipType) {
     firstName = this.firstName;
     lastName = this.lastName;
-    email = this.email;
-    password = this.password;
     age = this.age;
+    email = this.email;
+    phoneNumber = this.phoneNumber;
     membershipType = this.membershipType;
   }
 }
