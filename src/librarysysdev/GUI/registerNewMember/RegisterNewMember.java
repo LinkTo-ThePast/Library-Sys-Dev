@@ -1,6 +1,9 @@
 
 package librarysysdev.GUI.registerNewMember;
 
+import javax.swing.JOptionPane;
+import librarysysdev.logic.Controller;
+
 /**
  *
  * @author Luis_
@@ -15,9 +18,12 @@ public class RegisterNewMember extends javax.swing.JFrame {
     
   }
   
-  public String getUserPsnName() {
-    String userPsnName = this.txtPersonalName.getText();
-    return userPsnName;
+  private Controller controller = new Controller();
+  
+  
+  public String getUserFirstName() {
+    String userFirstName = this.txtFirstName.getText();
+    return userFirstName;
   }
   public String getUserLastName() {
     String userLastName = this.txtLastName.getText();
@@ -56,7 +62,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     iconLoginView = new javax.swing.JLabel();
     userAgeLabel = new javax.swing.JLabel();
     userEmailLabel = new javax.swing.JLabel();
-    txtPersonalName = new javax.swing.JTextField();
+    txtFirstName = new javax.swing.JTextField();
     txtEmail = new javax.swing.JTextField();
     txtAge = new javax.swing.JTextField();
     userPhoneNumberLabel = new javax.swing.JLabel();
@@ -72,7 +78,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     userPersonalNameLabel.setBackground(new java.awt.Color(241, 191, 152));
     userPersonalNameLabel.setFont(new java.awt.Font("MS UI Gothic", 0, 18)); // NOI18N
     userPersonalNameLabel.setForeground(new java.awt.Color(0, 0, 0));
-    userPersonalNameLabel.setText("Personal name(s):");
+    userPersonalNameLabel.setText("Given name(s):");
 
     txtLastName.setBackground(new java.awt.Color(241, 191, 152));
     txtLastName.setForeground(new java.awt.Color(0, 0, 0));
@@ -111,11 +117,11 @@ public class RegisterNewMember extends javax.swing.JFrame {
     userEmailLabel.setForeground(new java.awt.Color(0, 0, 0));
     userEmailLabel.setText("Email:");
 
-    txtPersonalName.setBackground(new java.awt.Color(241, 191, 152));
-    txtPersonalName.setForeground(new java.awt.Color(0, 0, 0));
-    txtPersonalName.addActionListener(new java.awt.event.ActionListener() {
+    txtFirstName.setBackground(new java.awt.Color(241, 191, 152));
+    txtFirstName.setForeground(new java.awt.Color(0, 0, 0));
+    txtFirstName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        txtPersonalNameActionPerformed(evt);
+        txtFirstNameActionPerformed(evt);
       }
     });
 
@@ -177,7 +183,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
               .addComponent(userEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(userPersonalNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtPersonalName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
           .addGroup(loginViewLayout.createSequentialGroup()
             .addGap(295, 295, 295)
@@ -206,7 +212,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
           .addGroup(loginViewLayout.createSequentialGroup()
             .addComponent(userPersonalNameLabel)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(txtPersonalName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(loginViewLayout.createSequentialGroup()
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -259,16 +265,24 @@ public class RegisterNewMember extends javax.swing.JFrame {
 
   private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
     
-    String userPersonalName = this.getUserPsnName();
+    String userFirstName = this.getUserFirstName();
     String userLastName = this.getUserLastName();
+    String[] userFullName = {userFirstName, userLastName};
     int userAge = this.getUserAge();
     String userEmail = this.getUserEmail();
     String userPhoneNumber = this.getUserPhoneNumber();
+    
+    if(controller.validateFullName(userFullName)) {
+      JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName);
+    } else {
+      JOptionPane.showMessageDialog(null, "something wrong with the validation");
+    }
+   
   }//GEN-LAST:event_registerBtnActionPerformed
 
-  private void txtPersonalNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPersonalNameActionPerformed
+  private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_txtPersonalNameActionPerformed
+  }//GEN-LAST:event_txtFirstNameActionPerformed
 
   private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
     // TODO add your handling code here:
@@ -294,8 +308,8 @@ public class RegisterNewMember extends javax.swing.JFrame {
   private javax.swing.JButton registerBtn;
   private javax.swing.JTextField txtAge;
   private javax.swing.JTextField txtEmail;
+  private javax.swing.JTextField txtFirstName;
   private javax.swing.JTextField txtLastName;
-  private javax.swing.JTextField txtPersonalName;
   private javax.swing.JTextField txtPhoneNumber;
   private javax.swing.JLabel userAgeLabel;
   private javax.swing.JLabel userEmailLabel;
