@@ -5,15 +5,24 @@ import librarysysdev.GUI.registerNewMember.RegisterNewMember;
 public class Controller {
 
  
-  public boolean validateFullName(String[] inputUserFullName) {
+  public boolean validateFirstName(String inputUserFirstName) {
     String regexString = "[a-zA-Z]+( +[a-zA-Z]+)*";
     boolean result = false;
-    for(int i = 0; i < inputUserFullName.length; i ++) {
-      if(inputUserFullName[i].matches(regexString)) {
-        result = true;
-      } else {
-        result = false;
-      }
+    if(inputUserFirstName.matches(regexString)) {
+      result = true;
+    } else {
+      result = false;
+    }
+    return result;
+}
+  
+  public boolean validateLastName(String inputUserLastName) {
+    String regexString = "[a-zA-Z]+( +[a-zA-Z]+)*";
+    boolean result = false;
+    if(inputUserLastName.matches(regexString)) {
+      result = true;
+    } else {
+      result = false;
     }
     return result;
 }
