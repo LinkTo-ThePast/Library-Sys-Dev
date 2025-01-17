@@ -28,7 +28,7 @@ public class Controller {
 }
   public boolean validateAge(int inputUserAge) {
     boolean result = false;
-    if(inputUserAge < 12) {
+    if(inputUserAge < 12 || inputUserAge > 70) {
       result = false;
     } else {
       result = true;
@@ -36,8 +36,4 @@ public class Controller {
     return result;
   }
   
-  public boolean validateEmail(String inputUserEmail) {
-    boolean result = false;
-    return result;
-  }
 }
