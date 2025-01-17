@@ -4,6 +4,7 @@ package librarysysdev.GUI.registerNewMember;
 import javax.swing.JOptionPane;
 import librarysysdev.logic.Controller;
 import librarysysdev.logic.EmailValidator;
+import librarysysdev.logic.PhoneNumberValidator;
 
 /**
  *
@@ -21,6 +22,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
   
   private Controller controller = new Controller();
   private EmailValidator emailValidator = new EmailValidator();
+  private PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
   
   
   public String getUserFirstName() {
@@ -274,7 +276,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userEmail = this.getUserEmail();
     String userPhoneNumber = this.getUserPhoneNumber();
     
-    if(controller.validateFirstName(userFirstName) && controller.validateLastName(userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge)) {
+    if(controller.validateFirstName(userFirstName) && controller.validateLastName(userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge) && phoneNumberValidator.validatePhoneNumber(userPhoneNumber)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName);
     } else {
       JOptionPane.showMessageDialog(null, "something wrong with the validation");
