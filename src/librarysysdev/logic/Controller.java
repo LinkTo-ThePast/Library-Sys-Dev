@@ -5,10 +5,10 @@ import librarysysdev.GUI.registerNewMember.RegisterNewMember;
 public class Controller {
 
  
-  public boolean validateFirstName(String inputUserFirstName) {
+  public boolean validateName(String inputUserFirstName, String inputUserLastName) {
     String regexString = "[a-zA-Z]+( +[a-zA-Z]+)*";
     boolean result = false;
-    if(inputUserFirstName.matches(regexString)) {
+    if(inputUserFirstName.matches(regexString) && inputUserLastName.matches(regexString)) {
       result = true;
     } else {
       result = false;
@@ -16,16 +16,7 @@ public class Controller {
     return result;
 }
   
-  public boolean validateLastName(String inputUserLastName) {
-    String regexString = "[a-zA-Z]+( +[a-zA-Z]+)*";
-    boolean result = false;
-    if(inputUserLastName.matches(regexString)) {
-      result = true;
-    } else {
-      result = false;
-    }
-    return result;
-}
+
   public boolean validateAge(int inputUserAge) {
     boolean result = false;
     if(inputUserAge < 12 || inputUserAge > 70) {

@@ -49,6 +49,11 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userPhoneNumber = this.txtPhoneNumber.getText();
     return userPhoneNumber;
   }
+  
+  public String getUserMembershipType() {
+    String userMembershipType = this.txtMembershipType.getSelectedItem().toString();
+    return userMembershipType;
+  }
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,9 +76,8 @@ public class RegisterNewMember extends javax.swing.JFrame {
     txtAge = new javax.swing.JTextField();
     userPhoneNumberLabel = new javax.swing.JLabel();
     userMembershipTypeLabel = new javax.swing.JLabel();
-    userMembershipType = new javax.swing.JScrollPane();
-    membershipListSelection = new javax.swing.JList<>();
     txtPhoneNumber = new javax.swing.JTextField();
+    txtMembershipType = new javax.swing.JComboBox<>();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,15 +159,6 @@ public class RegisterNewMember extends javax.swing.JFrame {
     userMembershipTypeLabel.setForeground(new java.awt.Color(0, 0, 0));
     userMembershipTypeLabel.setText("Membership type");
 
-    membershipListSelection.setBackground(new java.awt.Color(241, 191, 152));
-    membershipListSelection.setForeground(new java.awt.Color(0, 0, 0));
-    membershipListSelection.setModel(new javax.swing.AbstractListModel<String>() {
-      String[] strings = { "Regular", "Student", "Premium" };
-      public int getSize() { return strings.length; }
-      public String getElementAt(int i) { return strings[i]; }
-    });
-    userMembershipType.setViewportView(membershipListSelection);
-
     txtPhoneNumber.setBackground(new java.awt.Color(241, 191, 152));
     txtPhoneNumber.setForeground(new java.awt.Color(0, 0, 0));
     txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +166,10 @@ public class RegisterNewMember extends javax.swing.JFrame {
         txtPhoneNumberActionPerformed(evt);
       }
     });
+
+    txtMembershipType.setBackground(new java.awt.Color(241, 191, 152));
+    txtMembershipType.setForeground(new java.awt.Color(0, 0, 0));
+    txtMembershipType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regular", "Student", "Premium" }));
 
     javax.swing.GroupLayout loginViewLayout = new javax.swing.GroupLayout(loginView);
     loginView.setLayout(loginViewLayout);
@@ -192,16 +191,15 @@ public class RegisterNewMember extends javax.swing.JFrame {
           .addGroup(loginViewLayout.createSequentialGroup()
             .addGap(295, 295, 295)
             .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
-        .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
           .addComponent(userPhoneNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-            .addComponent(userMembershipTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-            .addComponent(userMembershipType))
+          .addComponent(userMembershipTypeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(txtPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
           .addGroup(loginViewLayout.createSequentialGroup()
             .addGap(22, 22, 22)
-            .addComponent(iconLoginView)))
+            .addComponent(iconLoginView))
+          .addComponent(txtMembershipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         .addGap(108, 108, 108))
     );
     loginViewLayout.setVerticalGroup(
@@ -224,17 +222,17 @@ public class RegisterNewMember extends javax.swing.JFrame {
             .addGap(75, 75, 75))
           .addGroup(loginViewLayout.createSequentialGroup()
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addComponent(userMembershipTypeLabel)
-                .addGap(18, 18, 18)
-                .addComponent(userMembershipType, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtMembershipType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addComponent(userLastNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userAgeLabel)))
+                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(userAgeLabel)
             .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -271,13 +269,13 @@ public class RegisterNewMember extends javax.swing.JFrame {
     
     String userFirstName = this.getUserFirstName();
     String userLastName = this.getUserLastName();
-    String[] userFullName = {userFirstName, userLastName};
     int userAge = this.getUserAge();
     String userEmail = this.getUserEmail();
     String userPhoneNumber = this.getUserPhoneNumber();
+    String userMembershipType = this.getUserMembershipType();
     
-    if(controller.validateFirstName(userFirstName) && controller.validateLastName(userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge) && phoneNumberValidator.validatePhoneNumber(userPhoneNumber)) {
-      JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName);
+    if(controller.validateName(userFirstName, userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge) && phoneNumberValidator.validatePhoneNumber(userPhoneNumber)) {
+      JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
       JOptionPane.showMessageDialog(null, "something wrong with the validation");
     }
@@ -308,17 +306,16 @@ public class RegisterNewMember extends javax.swing.JFrame {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel iconLoginView;
   private javax.swing.JPanel loginView;
-  private javax.swing.JList<String> membershipListSelection;
   private javax.swing.JButton registerBtn;
   private javax.swing.JTextField txtAge;
   private javax.swing.JTextField txtEmail;
   private javax.swing.JTextField txtFirstName;
   private javax.swing.JTextField txtLastName;
+  private javax.swing.JComboBox<String> txtMembershipType;
   private javax.swing.JTextField txtPhoneNumber;
   private javax.swing.JLabel userAgeLabel;
   private javax.swing.JLabel userEmailLabel;
   private javax.swing.JLabel userLastNameLabel;
-  private javax.swing.JScrollPane userMembershipType;
   private javax.swing.JLabel userMembershipTypeLabel;
   private javax.swing.JLabel userPersonalNameLabel;
   private javax.swing.JLabel userPhoneNumberLabel;
