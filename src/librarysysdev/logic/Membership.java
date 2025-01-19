@@ -32,33 +32,6 @@ public class Membership {
   private List<Book> bookList = new ArrayList<>();
   // methods:
 
-  // 1. retrieve/borrow books from the library;
-
-  public int limitBorrowedBooks() {
-    int maxBooks = 0; // --> initialize variable, then return, not define again;
-    if(membershipType.equals("standard")) {
-      return maxBooks = 2;
-    }
-    else if(membershipType.equals("student")) {
-      return maxBooks = 3;
-    }
-    else if(membershipType.equals("premium")) {
-      return maxBooks = 5;
-    }
-
-    else {
-      System.out.print("You're not a valid member of the library");
-    }
-    return maxBooks;
-  }
-
-  public int borrowBooks() {
-    if(this.currentBorrowedBooks <= this.limitBorrowedBooks()) {
-      System.out.println("You can borrow" + (this.limitBorrowedBooks() - this.currentBorrowedBooks) + "books");
-      return this.currentBorrowedBooks;
-    }
-    return this.currentBorrowedBooks;
-  }
 
   // 2. encapsulation
   public String getFirstName() {
