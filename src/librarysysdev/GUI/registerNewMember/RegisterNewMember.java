@@ -273,7 +273,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userEmail = this.getUserEmail();
     String userPhoneNumber = this.getUserPhoneNumber();
     String userMembershipType = this.getUserMembershipType();
-    
+ 
     if(controller.validateName(userFirstName, userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge) && phoneNumberValidator.validatePhoneNumber(userPhoneNumber)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
