@@ -4,7 +4,6 @@ public class AgeValidator implements Validator<Integer> {
   
   @Override
   public boolean validate(Integer age) {
- 
     return age >= 12 && age <= 72;
   }
   

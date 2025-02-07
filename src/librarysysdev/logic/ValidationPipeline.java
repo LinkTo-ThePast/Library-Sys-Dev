@@ -14,7 +14,7 @@ public class ValidationPipeline<T> {
   public boolean validateAll(T input) {
     errorMessages.clear();
     for(Validator<T> validator : validators) {
-      if(validator.validate(input)) {
+      if(!validator.validate(input)) {
         errorMessages.add(validator.getErrorMessage());
         return false;
       } 

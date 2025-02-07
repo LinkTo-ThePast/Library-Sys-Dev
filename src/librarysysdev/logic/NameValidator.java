@@ -10,8 +10,7 @@ public class NameValidator implements Validator<String> {
   
   @Override
   public String getErrorMessage() {
-    return "Invalid name. Only characters and spaces are allowed";
+    return "Invalid name format. Only letters and spaces are allowed";
   }
-  
- 
+
 }
