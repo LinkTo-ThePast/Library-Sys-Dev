@@ -21,4 +21,8 @@ public class ValidationPipeline<T> {
     }
     return true;
   }
+  
+  public List<String> errorMessages() {
+    return errorMessages;
+}
 }
