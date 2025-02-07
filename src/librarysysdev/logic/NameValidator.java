@@ -1,6 +1,7 @@
 package librarysysdev.logic;
 
 public class NameValidator implements Validator<String> {
+  
   private static final String NAME_PATTERN = "[a-zA-Z]+( +[a-zA-Z]+)*";
   
   
