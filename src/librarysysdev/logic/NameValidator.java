@@ -1,7 +1,7 @@
 package librarysysdev.logic;
 
 public class NameValidator implements Validator<String> {
-  private static final String NAME_PATTERN = "[a-zA-Z]+( +[a-zA-Z]+)*";
+    private static final String NAME_PATTERN = "[a-zA-Z]+( +[a-zA-Z]+)*";
   
   @Override
   public boolean validate(String name) {
@@ -10,7 +10,6 @@ public class NameValidator implements Validator<String> {
   
   @Override
   public String getErrorMessage() {
-    return "Invalid name format. Only letters and spaces are allowed";
+    return "Invalid format name. Only letters and spaces are valid.";
   }
-
 }
