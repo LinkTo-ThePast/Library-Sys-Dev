@@ -1,4 +1,4 @@
-package librarysysdev.logic;
+package librarysysdev.logic.validation;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,5 +17,9 @@ public class PhoneNumberValidator {
   public boolean validatePhoneNumber(final String userPhoneNumber) {
     matcher = pattern.matcher(userPhoneNumber);
     return matcher.matches();
+  }
+  
+  public String errorMessage() {
+    return "Invalid format for phone number. Please, assure that is a valid format.";
   }
 }

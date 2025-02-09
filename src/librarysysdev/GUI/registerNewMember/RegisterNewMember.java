@@ -3,8 +3,8 @@ package librarysysdev.GUI.registerNewMember;
 
 import javax.swing.JOptionPane;
 import librarysysdev.logic.Controller;
-import librarysysdev.logic.EmailValidator;
-import librarysysdev.logic.PhoneNumberValidator;
+import librarysysdev.logic.validation.EmailValidator;
+import librarysysdev.logic.validation.PhoneNumberValidator;
 
 /**
  *
@@ -274,7 +274,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userPhoneNumber = this.getUserPhoneNumber();
     String userMembershipType = this.getUserMembershipType();
  
-    if(controller.validateName(userFirstName, userLastName) && emailValidator.validate(userEmail) && controller.validateAge(userAge) && phoneNumberValidator.validatePhoneNumber(userPhoneNumber)) {
+    if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
       JOptionPane.showMessageDialog(null, "something wrong with the validation");
