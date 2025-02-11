@@ -12,10 +12,12 @@ public class ValidationPipeline<T> {
   public void addValidator(IValidator<T> validator) {
     validators.add(validator);
   }
+  // clear messages
   
   public boolean validationProcess(T input) {
   
     errorMessages.clear();
+    
     for(IValidator<T> validator : validators) {
       if(!validator.validate(input))
         // validator(name) => true, validator(email) => true, validator(phone) => false 

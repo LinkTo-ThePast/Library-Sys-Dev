@@ -14,11 +14,11 @@ public class Controller {
    //Initialize validation pipelines
    
    //for name
-   ValidationPipeline<String> namePipelineValidate = new ValidationPipeline<String>();
+   ValidationPipeline<String> namePipelineValidate = new ValidationPipeline<>();
    namePipelineValidate.addValidator(new NameValidator());
    
    //for age
-   ValidationPipeline<Integer> agePipelineValidate = new ValidationPipeline<Integer>();
+   ValidationPipeline<Integer> agePipelineValidate = new ValidationPipeline<>();
    agePipelineValidate.addValidator(new AgeValidator());
    
    if(!namePipelineValidate.validationProcess(firstName)) {
