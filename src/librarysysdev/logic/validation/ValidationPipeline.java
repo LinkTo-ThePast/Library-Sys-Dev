@@ -16,16 +16,20 @@ public class ValidationPipeline<T> {
   
   public boolean validationProcess(T input) {
   
+    // clear messages
     errorMessages.clear();
+    
+    // collect all the values
+    boolean confirmation = true;
     
     for(IValidator<T> validator : validators) {
       if(!validator.validate(input))
         // validator(name) => true, validator(email) => true, validator(phone) => false 
         errorMessages.add(validator.errorMessage());
-        return false; 
+        confirmation = false; 
     }
     
-    return true;
+    return confirmation;
   }
   
   public List<String> showErrorMessages() {
