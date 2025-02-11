@@ -14,25 +14,19 @@ public class Controller {
    //Initialize validation pipelines
    
    //for name
-   ValidationPipeline<String> namePipelineValidate = new ValidationPipeline<>();
-   namePipelineValidate.addValidator(new NameValidator());
-   
-   //for age
-   ValidationPipeline<Integer> agePipelineValidate = new ValidationPipeline<>();
-   agePipelineValidate.addValidator(new AgeValidator());
-   
-   if(!namePipelineValidate.validationProcess(firstName)) {
-     System.out.println(namePipelineValidate.showErrorMessages().toString());
+   ValidationPipeline fnameValidationPipeline = new ValidationPipeline();
+   // initialize interface NameValidator and passes to Pipeline
+   fnameValidationPipeline.addValidator(new NameValidator());
+   // process auth
+   if(!fnameValidationPipeline.validationProcess(firstName)) {
      return false;
    }
    
-   if(!namePipelineValidate.validationProcess(lastName)) {
-     System.out.println(namePipelineValidate.showErrorMessages().toString());
-     return false;
-   }
-   
-   if(!agePipelineValidate.validationProcess(age)) {
-     System.out.println(agePipelineValidate.showErrorMessages().toString());
+   ValidationPipeline lnameValidationPipeline = new ValidationPipeline();
+   // initialize interface NameValidator and passes to Pipeline
+   lnameValidationPipeline.addValidator(new NameValidator());
+   // process auth
+   if(!lnameValidationPipeline.validationProcess(lastName)) {
      return false;
    }
    

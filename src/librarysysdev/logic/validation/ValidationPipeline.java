@@ -3,18 +3,18 @@ package librarysysdev.logic.validation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ValidationPipeline<T> {
+public class ValidationPipeline {
 
-  private List<IValidator<T>> validators = new ArrayList<>();
+  private List<IValidator<?>> validators = new ArrayList<>();
   private List<String> errorMessages = new ArrayList<>();
   
   // initialize list of validators
-  public void addValidator(IValidator<T> validator) {
+  public <T> void addValidator(IValidator<T> validator) {
     validators.add(validator);
   }
   // clear messages
   
-  public boolean validationProcess(T input) {
+  public boolean validationProcess(Object input) {
   
     // clear messages
     errorMessages.clear();
@@ -22,8 +22,9 @@ public class ValidationPipeline<T> {
     // collect all the values
     boolean confirmation = true;
     
-    for(IValidator<T> validator : validators) {
-      if(!validator.validate(input))
+    for(IValidator<?> validator : validators) {
+      IValidator<Object> castedValidator = (IValidator<Object>) validator;
+      if(!castedValidator.validate(input))
         // validator(name) => true, validator(email) => true, validator(phone) => false 
         errorMessages.add(validator.errorMessage());
         confirmation = false; 
