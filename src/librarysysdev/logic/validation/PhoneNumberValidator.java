@@ -14,7 +14,7 @@ public class PhoneNumberValidator {
   pattern = Pattern.compile(PHONE_NUMBER_PATTERN);
   }
   
-  public boolean validatePhoneNumber(final String userPhoneNumber) {
+  public boolean validatePhoneNumber(String userPhoneNumber) {
     matcher = pattern.matcher(userPhoneNumber);
     return matcher.matches();
   }

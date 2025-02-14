@@ -21,8 +21,6 @@ public class RegisterNewMember extends javax.swing.JFrame {
   }
   
   private Controller controller = new Controller();
-  private EmailValidator emailValidator = new EmailValidator();
-  private PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
   
   
   public String getUserFirstName() {
@@ -277,7 +275,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
-      JOptionPane.showMessageDialog(null, "something wrong with the validation");
+      JOptionPane.showMessageDialog(null, "wts if going on");
     }
    
   }//GEN-LAST:event_registerBtnActionPerformed

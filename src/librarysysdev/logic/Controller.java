@@ -1,5 +1,7 @@
 package librarysysdev.logic;
 
+
+
 import librarysysdev.logic.validation.AgeValidator;
 import librarysysdev.logic.validation.EmailValidator;
 import librarysysdev.logic.validation.NameValidator;
@@ -7,43 +9,58 @@ import librarysysdev.logic.validation.PhoneNumberValidator;
 import librarysysdev.logic.validation.ValidationPipeline;
 
 
+
 public class Controller {
 
  public boolean validateUser(String firstName, String lastName, int age, String email, String phoneNumber) {
    
-   //Initialize validation pipelines
+  boolean finalTest = true;
+
    
    //for name
-   ValidationPipeline fnameValidationPipeline = new ValidationPipeline();
+   ValidationPipeline firstnameValidationPipeline = new ValidationPipeline();
    // initialize interface NameValidator and passes to Pipeline
-   fnameValidationPipeline.addValidator(new NameValidator());
+   firstnameValidationPipeline.addValidator(new NameValidator());
    // process auth
-   if(!fnameValidationPipeline.validationProcess(firstName)) {
-     return false;
+   if(!firstnameValidationPipeline.validationProcess(firstName)) {
+    
+     finalTest = false;
    }
    
-   ValidationPipeline lnameValidationPipeline = new ValidationPipeline();
+   ValidationPipeline lastnameValidationPipeline = new ValidationPipeline();
    // initialize interface NameValidator and passes to Pipeline
-   lnameValidationPipeline.addValidator(new NameValidator());
+   lastnameValidationPipeline.addValidator(new NameValidator());
    // process auth
-   if(!lnameValidationPipeline.validationProcess(lastName)) {
-     return false;
+   if(!lastnameValidationPipeline.validationProcess(lastName)) {
+     
+     finalTest = false;
+   }
+   
+   // for age 
+   ValidationPipeline ageValidationPipeline = new ValidationPipeline();
+   ageValidationPipeline.addValidator(new AgeValidator());
+   if(!ageValidationPipeline.validationProcess(age)) {
+     finalTest = false;
    }
    
    // for email validation
    EmailValidator emailValidator = new EmailValidator();
    if (!emailValidator.validate(email)) {
-     System.out.print(emailValidator.errorMessage());
-     return false;
+     
+     finalTest = false;
    }
    
    // for phone number validation
    PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
    if (!phoneNumberValidator.validatePhoneNumber(phoneNumber)) {
-     System.out.print(phoneNumberValidator.errorMessage());
-     return false;
+     finalTest = false;
    }
    
-   return true;
+   System.out.println("HELP");
+   
+   
+   System.out.println(Boolean.toString(finalTest));
+   return finalTest;
+   
  }
 }

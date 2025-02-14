@@ -12,7 +12,6 @@ public class ValidationPipeline {
   public <T> void addValidator(IValidator<T> validator) {
     validators.add(validator);
   }
-  // clear messages
   
   public boolean validationProcess(Object input) {
   
