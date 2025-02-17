@@ -271,11 +271,12 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userEmail = this.getUserEmail();
     String userPhoneNumber = this.getUserPhoneNumber();
     String userMembershipType = this.getUserMembershipType();
+    // , userLastName, userAge, userEmail, userPhoneNumber
  
-    if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
+    if(controller.validateUser(userFirstName)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
-      JOptionPane.showMessageDialog(null, "wts if going on");
+      JOptionPane.showMessageDialog(null, "wtf is going on");
     }
    
   }//GEN-LAST:event_registerBtnActionPerformed

@@ -12,10 +12,10 @@ import librarysysdev.logic.validation.ValidationPipeline;
 
 public class Controller {
 
- public boolean validateUser(String firstName, String lastName, int age, String email, String phoneNumber) {
+ public boolean validateUser(String firstName) {
    
   boolean finalTest = true;
-
+//  , String lastName, int age, String email, String phoneNumber
    
    //for name
    ValidationPipeline firstnameValidationPipeline = new ValidationPipeline();
@@ -27,35 +27,35 @@ public class Controller {
      finalTest = false;
    }
    
-   ValidationPipeline lastnameValidationPipeline = new ValidationPipeline();
-   // initialize interface NameValidator and passes to Pipeline
-   lastnameValidationPipeline.addValidator(new NameValidator());
-   // process auth
-   if(!lastnameValidationPipeline.validationProcess(lastName)) {
-     
-     finalTest = false;
-   }
-   
-   // for age 
-   ValidationPipeline ageValidationPipeline = new ValidationPipeline();
-   ageValidationPipeline.addValidator(new AgeValidator());
-   if(!ageValidationPipeline.validationProcess(age)) {
-     finalTest = false;
-   }
-   
-   // for email validation
-   EmailValidator emailValidator = new EmailValidator();
-   if (!emailValidator.validate(email)) {
-     
-     finalTest = false;
-   }
-   
-   // for phone number validation
-   PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
-   if (!phoneNumberValidator.validatePhoneNumber(phoneNumber)) {
-     finalTest = false;
-   }
-   
+//   ValidationPipeline lastnameValidationPipeline = new ValidationPipeline();
+//   // initialize interface NameValidator and passes to Pipeline
+//   lastnameValidationPipeline.addValidator(new NameValidator());
+//   // process auth
+//   if(!lastnameValidationPipeline.validationProcess(lastName)) {
+//     
+//     finalTest = false;
+//   }
+//   
+//   // for age 
+//   ValidationPipeline ageValidationPipeline = new ValidationPipeline();
+//   ageValidationPipeline.addValidator(new AgeValidator());
+//   if(!ageValidationPipeline.validationProcess(age)) {
+//     finalTest = false;
+//   }
+//   
+//   // for email validation
+//   EmailValidator emailValidator = new EmailValidator();
+//   if (!emailValidator.validate(email)) {
+//     
+//     finalTest = false;
+//   }
+//   
+//   // for phone number validation
+//   PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
+//   if (!phoneNumberValidator.validatePhoneNumber(phoneNumber)) {
+//     finalTest = false;
+//   }
+//   
    System.out.println("HELP");
    
    
