@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import librarysysdev.logic.Controller;
 import librarysysdev.logic.validation.EmailValidator;
 import librarysysdev.logic.validation.PhoneNumberValidator;
+import librarysysdev.test.TNameValidator;
 
 /**
  *
@@ -21,6 +22,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
   }
   
   private Controller controller = new Controller();
+  private TNameValidator testController = new TNameValidator();
   
   
   public String getUserFirstName() {
@@ -273,7 +275,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userMembershipType = this.getUserMembershipType();
     // , userLastName, userAge, userEmail, userPhoneNumber
  
-    if(controller.validateUser(userFirstName)) {
+    if(testController.isNameValid(userFirstName)) {
       JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
     } else {
       JOptionPane.showMessageDialog(null, "wtf is going on");

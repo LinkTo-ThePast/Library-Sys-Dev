@@ -2,7 +2,7 @@ package librarysysdev.logic.validation;
 
 public class NameValidator implements IValidator<String> {
   
-  private static final String NAME_PATTERN = "[a-zA-Z]+( +[a-zA-Z]+)*";
+  private static final String NAME_PATTERN = "^[\\p{L} .'-]+$";
   
   @Override
   public boolean validate(String name) {

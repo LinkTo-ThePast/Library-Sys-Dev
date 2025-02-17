@@ -23,7 +23,9 @@ public class Controller {
    firstnameValidationPipeline.addValidator(new NameValidator());
    // process auth
    if(!firstnameValidationPipeline.validationProcess(firstName)) {
-    
+     System.out.println(firstnameValidationPipeline.validationProcess(firstName));
+     System.out.println(firstName);
+     System.out.println(firstnameValidationPipeline.showErrorMessages().isEmpty());
      finalTest = false;
    }
    
@@ -56,8 +58,7 @@ public class Controller {
 //     finalTest = false;
 //   }
 //   
-   System.out.println("HELP");
-   
+ 
    
    System.out.println(Boolean.toString(finalTest));
    return finalTest;
