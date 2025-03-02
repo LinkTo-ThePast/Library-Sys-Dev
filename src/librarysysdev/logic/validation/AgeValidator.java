@@ -9,7 +9,7 @@ public class AgeValidator implements IValidator<Integer> {
   
   @Override
   public String errorMessage() {
-    return "Invalid format name. Only letters are allowed!";
+    return "Invalid age. Age must be between 10 and 70!";
   }
 
 }

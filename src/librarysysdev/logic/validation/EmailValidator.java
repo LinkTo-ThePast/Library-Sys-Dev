@@ -22,7 +22,7 @@ public class EmailValidator {
   }
   
   public String errorMessage() {
-    return "Invalid email format. Please, check that is written correctly.";
+    return "Invalid email format. Please, use a valid format.";
   }
 }
 

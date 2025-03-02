@@ -28,10 +28,10 @@ public class Controller {
   
   if(nameValidator.validate(firstName) && nameValidator.validate(lastName)) {
     isValid = true;
+
   } else {
-    errorList.put("First name", nameValidator.errorMessage());
-    errorList.put("Last name", nameValidator.errorMessage());
-    isValid = false;
+    
+    return false;
   }   
   
   // validation regarding age
@@ -39,9 +39,10 @@ public class Controller {
   
   if(ageValidator.validate(age)) {
     isValid = true;
+    System.out.println(age);
   } else {
-    errorList.put("Age", ageValidator.errorMessage());
-    isValid = false;
+    
+    return false;
   }
   
   // validation regarding email 
@@ -49,9 +50,10 @@ public class Controller {
   
   if(emailValidator.validate(email)) {
     isValid = true;
+    
   } else {
-    errorList.put("Email", emailValidator.errorMessage());
-    isValid = false;
+    
+    return false;
   }
   
   // vallidation regarding phone number
@@ -59,13 +61,11 @@ public class Controller {
   
   if(phoneNumberValidator.validatePhoneNumber(phoneNumber)) {
     isValid = true;
+    
   } else {
-    errorList.put("Phone number", phoneNumberValidator.errorMessage());
-    isValid = false;
+    return false;
   }
   
-  System.out.println(Boolean.toString(isValid));
   return isValid;
- 
  }
 }
