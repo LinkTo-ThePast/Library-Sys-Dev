@@ -2,6 +2,7 @@
 package librarysysdev.GUI.registerNewMember;
 
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import librarysysdev.logic.Controller;
 import librarysysdev.logic.validation.EmailValidator;
 import librarysysdev.logic.validation.PhoneNumberValidator;
@@ -22,7 +23,6 @@ public class RegisterNewMember extends javax.swing.JFrame {
   }
   
   private Controller controller = new Controller();
-  private TNameValidator testController = new TNameValidator();
   
   
   public String getUserFirstName() {
@@ -275,12 +275,11 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userMembershipType = this.getUserMembershipType();
     // , userLastName, userAge, userEmail, userPhoneNumber
  
-    if(testController.isNameValid(userFirstName)) {
-      JOptionPane.showMessageDialog(null, "Input data:" + userFirstName + "\n" + userLastName + "\n" + userMembershipType);
+    if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
+      showMessageDialog(null, "Your data is correct!");
     } else {
-      JOptionPane.showMessageDialog(null, "wtf is going on");
+      showMessageDialog(null, "Your data is incorrect!");
     }
-   
   }//GEN-LAST:event_registerBtnActionPerformed
 
   private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
