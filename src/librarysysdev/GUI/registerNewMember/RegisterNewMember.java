@@ -1,6 +1,8 @@
 
 package librarysysdev.GUI.registerNewMember;
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import librarysysdev.logic.Controller;
@@ -78,6 +80,11 @@ public class RegisterNewMember extends javax.swing.JFrame {
     userMembershipTypeLabel = new javax.swing.JLabel();
     txtPhoneNumber = new javax.swing.JTextField();
     txtMembershipType = new javax.swing.JComboBox<>();
+    firstNameError = new javax.swing.JLabel();
+    ageError = new javax.swing.JLabel();
+    lastNameError = new javax.swing.JLabel();
+    emailText = new javax.swing.JLabel();
+    phoneError = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -182,12 +189,24 @@ public class RegisterNewMember extends javax.swing.JFrame {
             .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(userLastNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
               .addComponent(userAgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addGroup(loginViewLayout.createSequentialGroup()
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(emailText))
               .addComponent(userEmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addGroup(loginViewLayout.createSequentialGroup()
+                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ageError))
               .addComponent(userPersonalNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
+              .addGroup(loginViewLayout.createSequentialGroup()
+                .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(firstNameError))
+              .addGroup(loginViewLayout.createSequentialGroup()
+                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lastNameError))))
           .addGroup(loginViewLayout.createSequentialGroup()
             .addGap(295, 295, 295)
             .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -200,7 +219,9 @@ public class RegisterNewMember extends javax.swing.JFrame {
             .addGap(22, 22, 22)
             .addComponent(iconLoginView))
           .addComponent(txtMembershipType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        .addGap(108, 108, 108))
+        .addGap(18, 18, 18)
+        .addComponent(phoneError)
+        .addGap(53, 53, 53))
     );
     loginViewLayout.setVerticalGroup(
       loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,11 +231,15 @@ public class RegisterNewMember extends javax.swing.JFrame {
           .addGroup(loginViewLayout.createSequentialGroup()
             .addComponent(userPhoneNumberLabel)
             .addGap(18, 18, 18)
-            .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(phoneError)))
           .addGroup(loginViewLayout.createSequentialGroup()
             .addComponent(userPersonalNameLabel)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+              .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(firstNameError))))
         .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(loginViewLayout.createSequentialGroup()
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -230,17 +255,23 @@ public class RegisterNewMember extends javax.swing.JFrame {
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addComponent(userLastNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                  .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(lastNameError))))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(userAgeLabel)
             .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                  .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(ageError))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(userEmailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(loginViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                  .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(emailText)))
               .addGroup(loginViewLayout.createSequentialGroup()
                 .addGap(3, 3, 3)
                 .addComponent(iconLoginView, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -278,7 +309,8 @@ public class RegisterNewMember extends javax.swing.JFrame {
     if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
       showMessageDialog(null, "Your data is correct!");
     } else {
-      showMessageDialog(null, "Your data is incorrect!");
+      Map<String, String> errorList = new HashMap<>(controller.errorList(userFirstName, userLastName, userAge, userEmail, userPhoneNumber));
+      showMessageDialog(null, errorList.toString());
     }
   }//GEN-LAST:event_registerBtnActionPerformed
 
@@ -304,8 +336,13 @@ public class RegisterNewMember extends javax.swing.JFrame {
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JLabel ageError;
+  private javax.swing.JLabel emailText;
+  private javax.swing.JLabel firstNameError;
   private javax.swing.JLabel iconLoginView;
+  private javax.swing.JLabel lastNameError;
   private javax.swing.JPanel loginView;
+  private javax.swing.JLabel phoneError;
   private javax.swing.JButton registerBtn;
   private javax.swing.JTextField txtAge;
   private javax.swing.JTextField txtEmail;

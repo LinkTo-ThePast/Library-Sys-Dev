@@ -50,12 +50,28 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="userLastNameLabel" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
                               <Component id="userAgeLabel" min="-2" pref="121" max="-2" attributes="0"/>
-                              <Component id="txtEmail" min="-2" pref="197" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtEmail" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="emailText" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="userEmailLabel" alignment="0" min="-2" pref="121" max="-2" attributes="0"/>
-                              <Component id="txtAge" min="-2" pref="197" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtAge" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="ageError" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="userPersonalNameLabel" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                              <Component id="txtFirstName" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="txtLastName" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtFirstName" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="firstNameError" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtLastName" min="-2" pref="197" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lastNameError" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -74,7 +90,9 @@
                       </Group>
                       <Component id="txtMembershipType" alignment="0" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="phoneError" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -86,12 +104,18 @@
                       <Group type="102" attributes="0">
                           <Component id="userPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="txtPhoneNumber" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtPhoneNumber" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="phoneError" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="userPersonalNameLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtFirstName" min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="txtFirstName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="firstNameError" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -111,7 +135,10 @@
                               <Group type="102" attributes="0">
                                   <Component id="userLastNameLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtLastName" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtLastName" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="lastNameError" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -119,11 +146,17 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtAge" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtAge" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="ageError" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="userEmailLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="txtEmail" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtEmail" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="emailText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -338,6 +371,16 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="firstNameError">
+        </Component>
+        <Component class="javax.swing.JLabel" name="ageError">
+        </Component>
+        <Component class="javax.swing.JLabel" name="lastNameError">
+        </Component>
+        <Component class="javax.swing.JLabel" name="emailText">
+        </Component>
+        <Component class="javax.swing.JLabel" name="phoneError">
         </Component>
       </SubComponents>
     </Container>
