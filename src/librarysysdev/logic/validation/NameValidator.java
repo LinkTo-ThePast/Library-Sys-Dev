@@ -11,6 +11,6 @@ public class NameValidator implements IValidator<String> {
   
   @Override
   public String errorMessage() {
-    return "Invalid format name. Please, only letters and spaces are allowed.";
+    return "Invalid format name. Please, only letters and spaces are allowed. Do not use special characters.";
   }
 }

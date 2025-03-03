@@ -16,12 +16,12 @@ public class Controller {
 
  public boolean validateUser(String firstName, String lastName, int age, String email, String phoneNumber) {
    
-   // general variable to indicate if validation process went good. 
-   boolean isValid = false;
+//general variable to indicate if validation process went good. 
+  boolean isValid = false;
    
    // general storage for error messages
-   Map<String, String> errorList = new HashMap<>(); 
-   errorList.clear();
+  Map<String, String> errorList = new HashMap<>(); 
+  errorList.clear();
    
   // validation regarding names
   NameValidator nameValidator = new NameValidator();
@@ -30,8 +30,8 @@ public class Controller {
     isValid = true;
 
   } else {
-    
-    return false;
+    errorList.put("First name", nameValidator.errorMessage());
+    errorList.put("Last name", nameValidator.errorMessage());
   }   
   
   // validation regarding age
@@ -39,10 +39,9 @@ public class Controller {
   
   if(ageValidator.validate(age)) {
     isValid = true;
-    System.out.println(age);
-  } else {
     
-    return false;
+  } else {
+    errorList.put("Age", ageValidator.errorMessage());
   }
   
   // validation regarding email 
@@ -52,8 +51,7 @@ public class Controller {
     isValid = true;
     
   } else {
-    
-    return false;
+    errorList.put("Email", emailValidator.errorMessage());
   }
   
   // vallidation regarding phone number
@@ -63,9 +61,74 @@ public class Controller {
     isValid = true;
     
   } else {
-    return false;
+    errorList.put("Phone number", phoneNumberValidator.errorMessage());
+  }
+  
+  if(errorList.isEmpty()) {
+    isValid = true;
+  } else {
+    isValid = false;
   }
   
   return isValid;
  }
+ 
+ public Map<String,String> errorList(String firstName, String lastName, int age, String email, String phoneNumber) {
+
+   boolean isValid = false;
+   
+   // general storage for error messages
+  Map<String, String> errorList = new HashMap<>(); 
+  errorList.clear();
+   
+  // validation regarding names
+  NameValidator nameValidator = new NameValidator();
+  
+  if(nameValidator.validate(firstName) && nameValidator.validate(lastName)) {
+    isValid = true;
+
+  } else {
+    errorList.put("First name", nameValidator.errorMessage());
+    errorList.put("Last name", nameValidator.errorMessage());
+  }   
+  
+  // validation regarding age
+  AgeValidator ageValidator = new AgeValidator();
+  
+  if(ageValidator.validate(age)) {
+    isValid = true;
+    
+  } else {
+    errorList.put("Age", ageValidator.errorMessage());
+  }
+  
+  // validation regarding email 
+  EmailValidator emailValidator = new EmailValidator();
+  
+  if(emailValidator.validate(email)) {
+    isValid = true;
+    
+  } else {
+    errorList.put("Email", emailValidator.errorMessage());
+  }
+  
+  // vallidation regarding phone number
+  PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
+  
+  if(phoneNumberValidator.validatePhoneNumber(phoneNumber)) {
+    isValid = true;
+    
+  } else {
+    errorList.put("Phone number", phoneNumberValidator.errorMessage());
+  }
+  
+  if(errorList.isEmpty()) {
+    isValid = true;
+  } else {
+    
+    isValid = false;
+  }
+  return errorList;
+}
+ 
 }
