@@ -20,12 +20,10 @@ public class RegisterNewMember extends javax.swing.JFrame {
    * Creates new form registerNewMember
    */
   public RegisterNewMember() {
-    initComponents();
-    
+    initComponents(); 
   }
   
   private Controller controller = new Controller();
-  
   
   public String getUserFirstName() {
     String userFirstName = this.txtFirstName.getText();
@@ -298,20 +296,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
 
   private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
     
-    String userFirstName = this.getUserFirstName();
-    String userLastName = this.getUserLastName();
-    int userAge = this.getUserAge();
-    String userEmail = this.getUserEmail();
-    String userPhoneNumber = this.getUserPhoneNumber();
-    String userMembershipType = this.getUserMembershipType();
-    // , userLastName, userAge, userEmail, userPhoneNumber
- 
-    if(controller.validateUser(userFirstName, userLastName, userAge, userEmail, userPhoneNumber)) {
-      showMessageDialog(null, "Your data is correct!");
-    } else {
-      Map<String, String> errorList = new HashMap<>(controller.errorList(userFirstName, userLastName, userAge, userEmail, userPhoneNumber));
-      showMessageDialog(null, errorList.toString());
-    }
+    showMessageDialog(null, "Por favor, espere un momento mientras validamos sus datos.");
   }//GEN-LAST:event_registerBtnActionPerformed
 
   private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed

@@ -132,33 +132,4 @@ public class Controller {
   return errorList;
 }
  
- public Membership createNewMembershipObject() {
- 
-   Membership newMember = new Membership();
-   
-   
-   try (this.validateUser(getTheActualDataThatWasVlidatedInTheGUI))
-   {
-     newMember.setFirstName(firstNameFromGui);
-     newMember.setLastName(lastNameFromGui);
-     newMember.setAge(ageFromGui);
-     newMember.setFirstName(emailFromGui);
-     newMember.setMembershipType(membershipFromGUI);
-     newMember.setPhoneNumber(phoneNumberFromGUI);
-     return nemMember;
-   } catch {
-     System.out.println("Error trying to generate a new member!")
-   }
-   
- }
- 
-  public ConnectDBController newDBConnection = new ConnectDBController();
- 
-  public sendNewMember (newMember) {
- 
-  newDBConnection("INSERT INTO Membership VALUES (newMember)");
- 
-  }
- 
-
 }
