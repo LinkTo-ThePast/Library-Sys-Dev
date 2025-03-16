@@ -3,7 +3,9 @@ package librarysysdev.GUI.registerNewMember;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import librarysysdev.logic.Controller;
@@ -27,8 +29,9 @@ public class RegisterNewMember extends javax.swing.JFrame {
   
   // GUI icons
   
-  ImageIcon iconLoadingDialog = new ImageIcon("/librarysysdev/GUI/icons/iconLoading.png");
+  ImageIcon iconLoadingDialog = new ImageIcon("C:\\Dreams\\LibrarySysDev\\src\\librarysysdev\\GUI\\icons\\iconLoading.png");
   
+
   
   private Controller controller = new Controller();
   
@@ -304,10 +307,8 @@ public class RegisterNewMember extends javax.swing.JFrame {
   }//GEN-LAST:event_txtLastNameActionPerformed
 
   private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
-    
-    
-    JOptionPane.showMessageDialog(null, "Por favor, espere un momento mientras validamos sus datos.", "Verificando datos de entrada...", 
-            JOptionPane.INFORMATION_MESSAGE, iconLoadingDialog);
+
+    JOptionPane.showMessageDialog(null, "Por favor, espere mientras validamos sus datos.", "Verificando datos...", 1, iconLoadingDialog);
   }//GEN-LAST:event_registerBtnActionPerformed
 
   private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
