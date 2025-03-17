@@ -20,6 +20,6 @@ public class PhoneNumberValidator {
   }
   
   public String errorMessage() {
-    return "Please, phone number must only contain numbers and form by ten digits.";
+    return "Formato de número telefónico inválido. Por favor, aségure de solo usar 10 digitos.";
   }
 }
