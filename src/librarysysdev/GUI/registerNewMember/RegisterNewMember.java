@@ -325,6 +325,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
     if(controller.validateUser(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())) {
       JOptionPane.showMessageDialog(null, "Los datos son válidos. Se procede al registro del usuario.", "Confirmación...", 1, iconLoadingDialog);
       isDataValid = true;
+      // happy with the progress that I have achieved today!
     } else {
       JOptionPane.showMessageDialog(null,
               "Se presentan los siguientes errores con los datos registrados:  " +
