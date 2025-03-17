@@ -319,13 +319,19 @@ public class RegisterNewMember extends javax.swing.JFrame {
 
   private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
 
+    boolean isDataValid = false; // when true, send data to the controller
+    
     JOptionPane.showMessageDialog(null, "Por favor, espere mientras validamos sus datos.", "Verificando datos...", 1, iconLoadingDialog);
     if(controller.validateUser(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())) {
       JOptionPane.showMessageDialog(null, "Los datos son válidos. Se procede al registro del usuario.", "Confirmación...", 1, iconLoadingDialog);
+      isDataValid = true;
     } else {
       JOptionPane.showMessageDialog(null,
-              "Se presentan los siguientes errores con los datos registrados:  " + controller.errorList(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())
-              , "Fallo...", JOptionPane.ERROR_MESSAGE, iconLoadingDialog);
+              "Se presentan los siguientes errores con los datos registrados:  " +
+                      controller.errorList(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())
+              , "Fallo...", 
+              JOptionPane.ERROR_MESSAGE, 
+              iconLoadingDialog);
     }
     
   }//GEN-LAST:event_registerBtnActionPerformed
