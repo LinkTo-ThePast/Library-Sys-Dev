@@ -9,7 +9,7 @@ public class AgeValidator implements IValidator<Integer> {
   
   @Override
   public String errorMessage() {
-    return "Invalid age. Age must be between 10 and 70!";
+    return "Dato de edad inválido. La edad de los usuarios debe estar entre los 10 y 70 años.";
   }
 
 }
