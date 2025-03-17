@@ -9,9 +9,11 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import librarysysdev.logic.Controller;
+import librarysysdev.logic.validation.AgeValidator;
 import librarysysdev.logic.validation.EmailValidator;
+import librarysysdev.logic.validation.NameValidator;
 import librarysysdev.logic.validation.PhoneNumberValidator;
-import librarysysdev.test.TNameValidator;
+
 
 /**
  *
@@ -32,8 +34,9 @@ public class RegisterNewMember extends javax.swing.JFrame {
   ImageIcon iconLoadingDialog = new ImageIcon("C:\\Dreams\\LibrarySysDev\\src\\librarysysdev\\GUI\\icons\\iconLoading.png");
   
 
-  
+  // controller
   private Controller controller = new Controller();
+  
   
   
   
@@ -66,6 +69,14 @@ public class RegisterNewMember extends javax.swing.JFrame {
     String userMembershipType = this.txtMembershipType.getSelectedItem().toString();
     return userMembershipType;
   }
+  
+  AgeValidator ageValidator = new AgeValidator();
+  EmailValidator emailValidator = new EmailValidator();
+  NameValidator nameValidator = new NameValidator();
+  PhoneNumberValidator phoneNumberValidator = new PhoneNumberValidator();
+  
+  
+  
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -309,6 +320,14 @@ public class RegisterNewMember extends javax.swing.JFrame {
   private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
 
     JOptionPane.showMessageDialog(null, "Por favor, espere mientras validamos sus datos.", "Verificando datos...", 1, iconLoadingDialog);
+    if(controller.validateUser(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())) {
+      JOptionPane.showMessageDialog(null, "Los datos son válidos. Se procede al registro del usuario.", "Confirmación...", 1, iconLoadingDialog);
+    } else {
+      JOptionPane.showMessageDialog(null,
+              "Los datos no son válidos" + controller.errorList(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())
+              , "Fallo...", JOptionPane.ERROR_MESSAGE, iconLoadingDialog);
+    }
+    
   }//GEN-LAST:event_registerBtnActionPerformed
 
   private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
