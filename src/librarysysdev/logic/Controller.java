@@ -85,13 +85,19 @@ public class Controller {
   // validation regarding names
   NameValidator nameValidator = new NameValidator();
   
-  if(nameValidator.validate(firstName) && nameValidator.validate(lastName)) {
+  if(nameValidator.validate(firstName)) {
     isValid = true;
 
   } else {
-    errorList.put("First name", nameValidator.errorMessage());
-    errorList.put("Last name", nameValidator.errorMessage());
-  }   
+    errorList.put("Primer nombre: ", nameValidator.errorMessage());
+    
+  }
+  
+  if(nameValidator.validate(lastName)) {
+    isValid = true;
+  } else {
+    errorList.put("Apellido: ", nameValidator.errorMessage());
+  }
   
   // validation regarding age
   AgeValidator ageValidator = new AgeValidator();
@@ -100,7 +106,7 @@ public class Controller {
     isValid = true;
     
   } else {
-    errorList.put("Age", ageValidator.errorMessage());
+    errorList.put("Edad: ", ageValidator.errorMessage());
   }
   
   // validation regarding email 
@@ -110,7 +116,7 @@ public class Controller {
     isValid = true;
     
   } else {
-    errorList.put("Email", emailValidator.errorMessage());
+    errorList.put("Correo electrónico: ", emailValidator.errorMessage());
   }
   
   // vallidation regarding phone number
@@ -120,7 +126,7 @@ public class Controller {
     isValid = true;
     
   } else {
-    errorList.put("Phone number", phoneNumberValidator.errorMessage());
+    errorList.put("Número telefónico: ", phoneNumberValidator.errorMessage());
   }
   
   if(errorList.isEmpty()) {

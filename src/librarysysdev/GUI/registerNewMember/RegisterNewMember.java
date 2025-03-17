@@ -324,7 +324,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(null, "Los datos son válidos. Se procede al registro del usuario.", "Confirmación...", 1, iconLoadingDialog);
     } else {
       JOptionPane.showMessageDialog(null,
-              "Los datos no son válidos" + controller.errorList(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())
+              "Se presentan los siguientes errores con los datos registrados:  " + controller.errorList(this.getUserFirstName(), this.getUserLastName(), this.getUserAge(), this.getUserEmail(), this.getUserPhoneNumber())
               , "Fallo...", JOptionPane.ERROR_MESSAGE, iconLoadingDialog);
     }
     

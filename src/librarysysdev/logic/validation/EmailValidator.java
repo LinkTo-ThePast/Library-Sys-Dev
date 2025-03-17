@@ -22,7 +22,7 @@ public class EmailValidator {
   }
   
   public String errorMessage() {
-    return "Formato de correo electrónico inválido:n\\- Añadir dominio después del ´@´.";
+    return "Formato de correo electrónico inválido: añadir dominio después del ´@´.";
   }
 }
 
