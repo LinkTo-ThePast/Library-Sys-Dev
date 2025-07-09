@@ -13,6 +13,5 @@ public class LibrarySysDev {
       viewEntry.setVisible(true);
       viewEntry.setLocationRelativeTo(null);
      
-    }
-    
+    }   
 }

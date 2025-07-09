@@ -9,6 +9,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import librarysysdev.logic.Controller;
+import librarysysdev.logic.Membership;
 import librarysysdev.logic.validation.AgeValidator;
 import librarysysdev.logic.validation.EmailValidator;
 import librarysysdev.logic.validation.NameValidator;
@@ -36,6 +37,8 @@ public class RegisterNewMember extends javax.swing.JFrame {
 
   // controller
   private Controller controller = new Controller();
+  
+  private Membership createMembership = new Membership();
   
   
   
@@ -326,6 +329,7 @@ public class RegisterNewMember extends javax.swing.JFrame {
       JOptionPane.showMessageDialog(null, "Los datos son válidos. Se procede al registro del usuario.", "Confirmación...", 1, iconLoadingDialog);
       isDataValid = true;
       // happy with the progress that I have achieved today!
+      
     } else {
       JOptionPane.showMessageDialog(null,
               "Se presentan los siguientes errores con los datos registrados:  " +
